@@ -1,17 +1,28 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+interface Todo {
+  id: number;
+  description: string;
+  title: string;
+  isComplete: boolean;
+}
+////
 function App() {
-  const getTodoList = () => {
-    axios.get("http://localhost:3000/todos").then(function (response) {
-      // handle success
+  const [todo, setTodo] = useState<Todo[]>([]);
+  ////
+  const getTodoList = async () => {
+    try {
+      const response = await axios.get("http://localhost:3000/todos");
       console.log(response);
-    });
+      setTodo(response.data);
+    } catch (error) {
+      console.log("error", error);
+    }
   };
+  ///
   useEffect(() => {
     getTodoList();
   }, []);
-
-  const [todo, setTodo] = useState({});
 
   return <>forrazo</>;
 }
