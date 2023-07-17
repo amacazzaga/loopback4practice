@@ -4,8 +4,8 @@ import TodoItem from "./components/TodoItem";
 import TodoType from "./types/todotype";
 import TodoForm from "./components/TodoForm";
 import "./App.css";
-////
 
+////
 function App() {
   const [todo, setTodo] = useState<TodoType[]>([]);
   ////
@@ -24,13 +24,14 @@ function App() {
   }, []);
   ///
   return (
-    <div className="container row  ">
+    <div className="container d-flex row ">
       {todo.map((todo, _index) => (
         <TodoItem todo={todo} key={todo.id} />
       ))}
-      <TodoForm/>
+     <div className="container">
+      <TodoForm />
+      </div>
     </div>
-
   );
 }
 export default App;

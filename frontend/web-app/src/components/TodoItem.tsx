@@ -5,7 +5,7 @@ interface Props {
 
 const TodoItem = ({ todo }: Props) => {
   return (
-    <div className="border m-1">
+    <div className="border">
       <div className="m-1">{todo.id}</div>
       <div className="m-1">{todo.title}</div>
       <div className="m-1">{todo.desc}</div>
