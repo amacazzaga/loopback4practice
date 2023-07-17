@@ -1,15 +1,11 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Todo from "./components/Todo";
-interface Props {
-  id: number;
-  description: string;
-  title: string;
-  isComplete: boolean;
-}
+import TodoItem from "./components/TodoItem";
+import TodoType from "./types/todotype";
 ////
+
 function App() {
-  const [todo, setTodo] = useState<Props[]>([]);
+  const [todo, setTodo] = useState<TodoType[]>([]);
   ////
   const getTodoList = async () => {
     try {
@@ -25,8 +21,12 @@ function App() {
     getTodoList();
   }, []);
   ///
-  return(
-    <div>{<Todo/>}</div>
-  )
+  return (
+    <div>
+      {todo.map((todo,_index) => (
+        <TodoItem todo={todo} key={todo.id}/>
+      ))}
+    </div>
+  );
 }
 export default App;
