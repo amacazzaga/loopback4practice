@@ -5,9 +5,11 @@ interface Props {
 
 const TodoItem = ({ todo }: Props) => {
   return (
-    <div className="border">
+    <div className="border m-1">
+      <div className="m-1">{todo.id}</div>
       <div className="m-1">{todo.title}</div>
-      <div className="m-1">{todo.description}</div>
+      <div className="m-1">{todo.desc}</div>
+      <div className="m-1">{todo.isComplete.toString()}</div>
     </div>
   );
 };

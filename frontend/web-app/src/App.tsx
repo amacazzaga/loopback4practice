@@ -1,8 +1,9 @@
 import axios from "axios";
-import "./App.css";
 import { useState, useEffect } from "react";
 import TodoItem from "./components/TodoItem";
 import TodoType from "./types/todotype";
+import TodoForm from "./components/TodoForm";
+import "./App.css";
 ////
 
 function App() {
@@ -27,7 +28,9 @@ function App() {
       {todo.map((todo, _index) => (
         <TodoItem todo={todo} key={todo.id} />
       ))}
+      <TodoForm/>
     </div>
+
   );
 }
 export default App;
