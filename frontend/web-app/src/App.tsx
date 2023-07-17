@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-interface Todo {
+import Todo from "./components/Todo";
+interface Props {
   id: number;
   description: string;
   title: string;
@@ -8,7 +9,7 @@ interface Todo {
 }
 ////
 function App() {
-  const [todo, setTodo] = useState<Todo[]>([]);
+  const [todo, setTodo] = useState<Props[]>([]);
   ////
   const getTodoList = async () => {
     try {
@@ -23,8 +24,9 @@ function App() {
   useEffect(() => {
     getTodoList();
   }, []);
-
-  return <>forrazo</>;
+  ///
+  return(
+    <div>{<Todo/>}</div>
+  )
 }
-
 export default App;
