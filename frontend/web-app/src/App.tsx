@@ -1,4 +1,5 @@
 import axios from "axios";
+import "./App.css";
 import { useState, useEffect } from "react";
 import TodoItem from "./components/TodoItem";
 import TodoType from "./types/todotype";
@@ -22,9 +23,9 @@ function App() {
   }, []);
   ///
   return (
-    <div>
-      {todo.map((todo,_index) => (
-        <TodoItem todo={todo} key={todo.id}/>
+    <div className="container row  ">
+      {todo.map((todo, _index) => (
+        <TodoItem todo={todo} key={todo.id} />
       ))}
     </div>
   );
